@@ -213,3 +213,4 @@ WHERE (
 	SELECT COUNT(SoldierID) FROM Personnel
 	WHERE Personnel.CompanyID = Companies.CompanyID
 ) = '6'
+
