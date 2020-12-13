@@ -169,7 +169,7 @@ SELECT *, (
 	WHERE Units.UnitID = Companies.UnitID
 ) AS CompanyCount FROM Units
 
--- Выводим данные о служащих вместе с информацией о длительности службы
+-- Выводим данные о служащих вместе с информацией о длительности службы (в годах)
 SELECT *, (2020 - JoinYear) AS ServiceLength FROM Personnel;
 
 -- Выводим фамилию, звание и название роты, в которых состоит служащий
@@ -208,9 +208,21 @@ SELECT BirthYear FROM Personnel
 INTERSECT
 SELECT JoinYear FROM Personnel
 
+-- Выводим роту где 6 служащих
 SELECT * FROM Companies
 WHERE (
 	SELECT COUNT(SoldierID) FROM Personnel
 	WHERE Personnel.CompanyID = Companies.CompanyID
 ) = '6'
+
+-- Вывод данных о служащих, не участвующих в военных мероприятиях
+SELECT p.Surname, p.BirthYear, p.SoldierRank, c.CompanyName 
+FROM Personnel p
+JOIN Companies c
+ON c.CompanyID = p.CompanyID
+WHERE TakesPartInMilitaryEvents = 'No'
+
+-- Вывод мест дислокаций в Соединенных Королевствах
+SELECT * FROM DislocationPlaces
+WHERE Country = 'UK'
 
