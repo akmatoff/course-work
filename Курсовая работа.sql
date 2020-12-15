@@ -1,3 +1,5 @@
+-- Создание базы данных
+CREATE DATABASE [Military Units. Course Work]
 
 -- ===================================================== СОЗДАНИЕ ТАБЛИЦ =======================================================================================
 
@@ -98,7 +100,7 @@ VALUES ('USA', 'Washington', 'Waterville', '820'),
 ('UK', 'Boston', 'Alfred St', '625'),
 ('Germany', 'Freienhagen', 'Anger', '812');
 
--- Внесение данных в таблицу "Виды войск"Ф
+-- Внесение данных в таблицу "Виды войск"
 INSERT INTO TroopsTypes(TroopsTypeName) 
 VALUES ('Air Force'),
 ('Ground Force'),
